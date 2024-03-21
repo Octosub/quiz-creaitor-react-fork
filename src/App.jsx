@@ -21,6 +21,7 @@ export default function App() {
     <div className='app-frame'>
       <Navbar />
       <div className='app-body'>
+        {console.log(typeof(test))}
         {test ? <Test test={test}/> : 'Loading...'}
       </div>
     </div>

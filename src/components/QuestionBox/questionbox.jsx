@@ -1,13 +1,17 @@
 import React from 'react';
 import Answers from '../Answers/answers';
 
-function QuestionBox({test}) {
+function QuestionBox({challenge}) {
+  const choices = challenge[0].choices;
+
   return (
     <div>
-      <p>question: {test.challenges.challenge1.question}</p>
-      <div className='app-body'>
-        {test ? <Answers test={test}/> : 'Loading...'}
-      </div>
+      <p>question: {challenge[0].question}</p>
+      {console.log(challenge[0])}
+      {console.log(typeof(challenge))}
+      {<div className='app-body'>
+        {choices ? <Answers choices={choices}/> : 'Loading...'}
+      </div>}
     </div>
   );
 }

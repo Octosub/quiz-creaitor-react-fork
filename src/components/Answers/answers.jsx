@@ -1,6 +1,6 @@
-import React from 'react';
+// import React from 'react';
 
-function Answers({ test }) {
+function Answers({ choices }) {
   const handleAnswerClick = (answer) => {
     // Handle the click event for the answer here
     console.log(`Clicked answer: ${answer}`);
@@ -8,14 +8,14 @@ function Answers({ test }) {
 
   return (
     <div className='app-body'>
-      <button onClick={() => handleAnswerClick(test.challenges.challenge1.choices.a)}>
-        a: {test.challenges.challenge1.choices.a}
+      <button onClick={() => handleAnswerClick(choices.choice1)}>
+        a: {choices.choice1}
       </button>
-      <button onClick={() => handleAnswerClick(test.challenges.challenge1.choices.b)}>
-        b: {test.challenges.challenge1.choices.b}
+      <button onClick={() => handleAnswerClick(choices.choice2)}>
+        b: {choices.choice2}
       </button>
-      <button onClick={() => handleAnswerClick(test.challenges.challenge1.choices.c)}>
-        c: {test.challenges.challenge1.choices.c}
+      <button onClick={() => handleAnswerClick(choices.choice3)}>
+        c: {choices.choice3}
       </button>
     </div>
   );
