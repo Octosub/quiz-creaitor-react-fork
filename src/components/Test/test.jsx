@@ -5,8 +5,9 @@ import QuestionBox from '../QuestionBox/questionbox';
 function Test({test}) {
   // console.log(JSON.parse(test.challenges));
   // const challenge = JSON.parse(test.challenges);
-  const challengeObject = JSON.parse(test.challenges);
-  const challengeArray = Object.values(challengeObject);
+  // const challengeObject = JSON.parse(test.challenges);
+  // const challengeArray = Object.values(challengeObject);
+  const challengeArray = Object.values(test.challenges);
 
 
   return (
