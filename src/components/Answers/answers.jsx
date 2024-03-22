@@ -1,8 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 
-function Answers({ choices, correctAnswer }) {
-  const [clicked, setClicked] = useState(false);
+function Answers({ choices, correctAnswer, clicked, setClicked }) {
   const [isCorrect, setIsCorrect] = useState(null);
   const [correctCount, setCorrectCount] = useState(0);
 

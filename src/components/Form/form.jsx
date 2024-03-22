@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 //   );
 // }
 
-export default function Form({ setTestData }) {
+export default function Form({ setTestData, setClicked }) {
   const [formData, setFormData] = useState({ content: ''});
 
   const handleChange = (e) => {
@@ -29,6 +29,7 @@ export default function Form({ setTestData }) {
     // console.log(data);
     // console.log(formData);
     setTestData(data);
+    setClicked(false);
   };
 
   return (
