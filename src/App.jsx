@@ -34,7 +34,7 @@ export default function App() {
       <Form setTestData={setTestData} />
       <div className='app-body'>
         {/* {console.log(typeof(test))} */}
-        {/* {console.log(data)} */}
+        {console.log(testData)}
         {testData ? <Test test={testData}/> : 'Loading...'}
       </div>
     </div>
