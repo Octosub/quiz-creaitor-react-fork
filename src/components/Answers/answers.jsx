@@ -24,7 +24,7 @@ function Answers({ choices, correctAnswer, clicked, setClicked }) {
     } else {
       return false;
     }
-  }
+  };
 
   return (
     <><div>

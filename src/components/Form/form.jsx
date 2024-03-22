@@ -30,6 +30,7 @@ export default function Form({ setTestData, setClicked }) {
     // console.log(formData);
     setTestData(data);
     setClicked(false);
+    console.log(JSON.stringify(formData));
   };
 
   return (

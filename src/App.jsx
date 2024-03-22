@@ -10,7 +10,7 @@ export default function App() {
   // const [tests, setTests] = React.useState([]);
   // const [test, setTest] = React.useState(null);
   // const [formData, setFormData] = React.useState(null); // New state for form data
-  const [data, setData] = React.useState(null); // New state for form data
+  // const [data, setData] = React.useState(null); // New state for form data
   const [testData, setTestData] = React.useState(null); // New state for test data
   const [clicked, setClicked] = useState(false);
 
