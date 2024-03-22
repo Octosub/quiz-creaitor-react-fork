@@ -7,12 +7,7 @@ import Form from "./components/Form/form";
 import { useState } from 'react';
 
 export default function App() {
-
-  // const [tests, setTests] = React.useState([]);
-  // const [test, setTest] = React.useState(null);
-  // const [formData, setFormData] = React.useState(null); // New state for form data
-  // const [data, setData] = React.useState(null); // New state for form data
-  const [testData, setTestData] = React.useState(null); // New state for test data
+  const [testData, setTestData] = React.useState(null);
   const [clicked, setClicked] = useState(false);
 
   React.useEffect(() => {
@@ -21,14 +16,8 @@ export default function App() {
     .then(response => response.json())
     .then(data => {
       setTestData(data);
-      // setData(data);
     });
-    // console.log(data);
   }, []);
-
-  // const handleFormSubmit = (data) => {
-  //   setFormData(data); // Update form data state when form is submitted
-  // };
 
   return (
     <div className='app-frame'>
@@ -36,7 +25,6 @@ export default function App() {
       <Dropzone />
       <Form setTestData={setTestData} setClicked={setClicked} />
       <div className='app-body'>
-        {/* {console.log(typeof(test))} */}
         {console.log(testData)}
         {testData ? <Test test={testData} clicked={clicked} setClicked={setClicked}/> : 'Loading...'}
       </div>

@@ -1,9 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 
-function Answers({ choices, correctAnswer, clicked, setClicked }) {
+function Answers({ choices, correctAnswer, clicked, setClicked, setCorrectCount, correctCount }) {
   const [isCorrect, setIsCorrect] = useState(null);
-  const [correctCount, setCorrectCount] = useState(0);
 
   const handleAnswerClick = (answer) => {
     console.log(`Clicked answer: ${answer}`);
@@ -27,10 +26,7 @@ function Answers({ choices, correctAnswer, clicked, setClicked }) {
   };
 
   return (
-    <><div>
-      <h5>Your current score: {correctCount * 10}</h5>
-    </div>
-
+    <>
     <div className='app-body'>
         <button
           onClick={() => handleAnswerClick(choices.choice1)}
