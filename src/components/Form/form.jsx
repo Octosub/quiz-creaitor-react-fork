@@ -1,14 +1,5 @@
 import React, { useState } from 'react';
 
-// export default function ParentComponent() {
-//   return (
-//     <div>
-//       <Form setData={setData} />
-//       {/* Now you can use the data in this component or pass it to other children */}
-//     </div>
-//   );
-// }
-
 export default function Form({ setTestData, setClicked }) {
   const [formData, setFormData] = useState({ content: ''});
 
@@ -26,8 +17,6 @@ export default function Form({ setTestData, setClicked }) {
       body: JSON.stringify(formData),
     });
     const data = await response.json();
-    // console.log(data);
-    // console.log(formData);
     setTestData(data);
     setClicked(false);
     console.log(JSON.stringify(formData));

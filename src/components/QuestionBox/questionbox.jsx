@@ -1,18 +1,17 @@
 import React from 'react';
 import Answers from '../Answers/answers';
 
-function QuestionBox({challenge, clicked, setClicked}) {
-  const choices = challenge[0].choices;
-  const correctAnswer = challenge[0].answer;
-
+function QuestionBox({challenge, clicked, setClicked, correctCount, setCorrectCount}) {
   return (
     <div>
-      <p>question: {challenge[0].question}</p>
-      {/* {console.log(challenge[0])} */}
-      {/* {console.log(typeof(challenge))} */}
-      {<div className='app-body'>
-        {choices ? <Answers choices={choices} correctAnswer={correctAnswer} clicked={clicked} setClicked={setClicked}/> : 'Loading...'}
-      </div>}
+      {challenge.map((item, index) => (
+        <div key={index}>
+          <p>question: {item.question}</p>
+          <div className='app-body'>
+            {item.choices ? <Answers choices={item.choices} correctAnswer={item.answer} clicked={clicked} setClicked={setClicked} correctCount={correctCount} setCorrectCount={setCorrectCount} /> : 'Loading...'}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
