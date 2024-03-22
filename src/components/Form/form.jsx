@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 
-export default function Form() {
+// export default function ParentComponent() {
+//   return (
+//     <div>
+//       <Form setData={setData} />
+//       {/* Now you can use the data in this component or pass it to other children */}
+//     </div>
+//   );
+// }
+
+export default function Form({ setTestData }) {
   const [formData, setFormData] = useState({ content: ''});
 
   const handleChange = (e) => {
@@ -17,8 +26,9 @@ export default function Form() {
       body: JSON.stringify(formData),
     });
     const data = await response.json();
-    console.log(data);
-    console.log(formData);
+    // console.log(data);
+    // console.log(formData);
+    setTestData(data);
   };
 
   return (

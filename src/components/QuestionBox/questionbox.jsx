@@ -8,8 +8,8 @@ function QuestionBox({challenge}) {
   return (
     <div>
       <p>question: {challenge[0].question}</p>
-      {console.log(challenge[0])}
-      {console.log(typeof(challenge))}
+      {/* {console.log(challenge[0])} */}
+      {/* {console.log(typeof(challenge))} */}
       {<div className='app-body'>
         {choices ? <Answers choices={choices} correctAnswer={correctAnswer}/> : 'Loading...'}
       </div>}

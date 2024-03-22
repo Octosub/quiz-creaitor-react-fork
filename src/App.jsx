@@ -1,31 +1,41 @@
-// Backend API endpoint: https://matcha-and-keyboard-f549965e60e7.herokuapp.com/api/v1/tests
 import "./App.css";
 import React from "react";
 import Navbar from "./components/Navbar";
 import Test from "./components/Test/test";
-// import Form from "./components/Form/form";
+import Form from "./components/Form/form";
 
 export default function App() {
 
   // const [tests, setTests] = React.useState([]);
-  const [test, setTest] = React.useState(null);
+  // const [test, setTest] = React.useState(null);
+  // const [formData, setFormData] = React.useState(null); // New state for form data
+  const [data, setData] = React.useState(null); // New state for form data
+  const [testData, setTestData] = React.useState(null); // New state for test data
+
 
   React.useEffect(() => {
     const url = "http://localhost:3000/api/v1/tests/9";
     fetch(url)
     .then(response => response.json())
     .then(data => {
-      setTest(data);
+      setTestData(data);
+      // setData(data);
     });
+    // console.log(data);
   }, []);
+
+  // const handleFormSubmit = (data) => {
+  //   setFormData(data); // Update form data state when form is submitted
+  // };
 
   return (
     <div className='app-frame'>
       <Navbar />
-      {/* <Form /> */}
+      <Form setTestData={setTestData} />
       <div className='app-body'>
-        {console.log(typeof(test))}
-        {test ? <Test test={test}/> : 'Loading...'}
+        {/* {console.log(typeof(test))} */}
+        {/* {console.log(data)} */}
+        {testData ? <Test test={testData}/> : 'Loading...'}
       </div>
     </div>
   );
