@@ -5,8 +5,10 @@ import QuestionBox from '../QuestionBox/questionbox';
 function Test({test}) {
   // console.log(JSON.parse(test.challenges));
   // const challenge = JSON.parse(test.challenges);
-  const challengeObject = JSON.parse(test.challenges);
-  const challengeArray = Object.values(challengeObject);
+  console.log(typeof(test.challenges));
+  // const challengeObject = JSON.parse(test.challenges);
+  const challengeArray = Object.values(test.challenges);
+  // const challengeArray = Object.values(challengeObject);
 
 
   return (
@@ -15,8 +17,8 @@ function Test({test}) {
       <p>Max Score: {test.max_score}</p>
       <p>Time: {test.time}</p>
       <div className='app-body'>
-        {console.log(typeof(challengeArray))}
-        {console.log(typeof(challengeObject))}
+        {/* {console.log(typeof(challengeArray))}
+        {console.log(typeof(challengeObject))} */}
         {challengeArray ? <QuestionBox challenge={challengeArray}/> : 'Loading...'}
       </div>
       <p>Created At: {test.created_at}</p>

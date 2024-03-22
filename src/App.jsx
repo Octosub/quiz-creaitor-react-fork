@@ -3,8 +3,10 @@ import "./App.css";
 import React from "react";
 import Navbar from "./components/Navbar";
 import Test from "./components/Test/test";
+// import Form from "./components/Form/form";
 
 export default function App() {
+
   // const [tests, setTests] = React.useState([]);
   const [test, setTest] = React.useState(null);
 
@@ -20,6 +22,7 @@ export default function App() {
   return (
     <div className='app-frame'>
       <Navbar />
+      {/* <Form /> */}
       <div className='app-body'>
         {console.log(typeof(test))}
         {test ? <Test test={test}/> : 'Loading...'}
