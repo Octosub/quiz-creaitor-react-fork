@@ -3,7 +3,8 @@ import React from 'react';
 import QuestionBox from '../QuestionBox/questionbox';
 import { useState } from 'react';
 
-function Test({test, clicked, setClicked}) {
+// function Test({test, clicked, setClicked}) {
+function Test({test}) {
   const [correctCount, setCorrectCount] = useState(0);
 
   let challengeArray;
@@ -24,7 +25,8 @@ function Test({test, clicked, setClicked}) {
       <p>Max Score: {test.max_score}</p>
       <p>Time: {test.time}</p>
       <div className='app-body'>
-        {challengeArray ? <QuestionBox challenge={challengeArray} clicked={clicked} setClicked={setClicked} setCorrectCount={setCorrectCount} correctCount={correctCount}/> : 'Loading...'}
+        {/* {challengeArray ? <QuestionBox challenge={challengeArray} clicked={clicked} setClicked={setClicked} setCorrectCount={setCorrectCount} correctCount={correctCount}/> : 'Loading...'} */}
+        {challengeArray ? <QuestionBox challenge={challengeArray} setCorrectCount={setCorrectCount} correctCount={correctCount}/> : 'Loading...'}
       </div>
       <p>Created At: {test.created_at}</p>
       <p>Updated At: {test.updated_at}</p>

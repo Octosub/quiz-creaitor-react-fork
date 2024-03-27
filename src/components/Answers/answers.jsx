@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-function Answers({ choices, correctAnswer, clicked, setClicked, setCorrectCount, correctCount }) {
+// function Answers({ choices, correctAnswer, clicked, setClicked, setCorrectCount, correctCount }) {
+function Answers({ choices, correctAnswer, setCorrectCount, correctCount }) {
   const [isCorrect, setIsCorrect] = useState({});
-  // const [clicked, setClicked] = useState({});
+  const [clicked, setClicked] = useState({});
   const [shouldUpdateCorrectCount, setShouldUpdateCorrectCount] = useState(false);
 
   useEffect(() => {
@@ -11,24 +12,28 @@ function Answers({ choices, correctAnswer, clicked, setClicked, setCorrectCount,
       setCorrectCount(correctCount + 1);
       setShouldUpdateCorrectCount(false);
     }
-  }, [shouldUpdateCorrectCount, correctCount]);
-
+  }, [shouldUpdateCorrectCount, correctCount, setCorrectCount]);
 
 
   const handleAnswerClick = (answer, questionId) => {
     console.log(`Clicked answer: ${answer}`);
-    setClicked(prevState => {
-      const updatedState = { ...prevState, [questionId]: true };
-      if (!prevState[questionId]) {
-        if (answer === correctAnswer) {
-          setIsCorrect(prevState => ({ ...prevState, [questionId]: true }));
-          setShouldUpdateCorrectCount(true);
-        } else {
-          setIsCorrect(prevState => ({ ...prevState, [questionId]: false }));
-        }
+    console.log(choices);
+    // console.log(questionId);
+    // console.log(typeof(questionId));
+    // console.log(questionId === 'question3');
+    // console.log(clicked[questionId]);
+    if (!clicked[questionId] === true) {
+      if (answer === correctAnswer) {
+        // If the answer is correct, set all answers to "clicked"
+        setClicked(prevState => ({ ...prevState,
+          [questionId]: true }));
+        setIsCorrect(prevState => ({ ...prevState, [questionId]: true }));
+        setShouldUpdateCorrectCount(true);
+      } else {
+        setClicked(prevState => ({ ...prevState, [questionId]: true }));
+        setIsCorrect(prevState => ({ ...prevState, [questionId]: false }));
       }
-      return updatedState;
-    });
+    }
   };
 
   const checkIfCorrect = (choice) => {
