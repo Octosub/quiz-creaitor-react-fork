@@ -1,19 +1,9 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-// function Answers({ choices, correctAnswer, clicked, setClicked, setCorrectCount, correctCount }) {
-function Answers({ choices, correctAnswer, setCorrectCount, correctCount }) {
+function Answers({ choices, correctAnswer, setCorrectCount}) {
   const [isCorrect, setIsCorrect] = useState({});
   const [clicked, setClicked] = useState({});
-  const [shouldUpdateCorrectCount, setShouldUpdateCorrectCount] = useState(false);
-
-  useEffect(() => {
-    if (shouldUpdateCorrectCount) {
-      setCorrectCount(correctCount + 1);
-      setShouldUpdateCorrectCount(false);
-    }
-  }, [shouldUpdateCorrectCount, correctCount, setCorrectCount]);
-
 
   const handleAnswerClick = (answer, questionId) => {
     console.log(`Clicked answer: ${answer}`);
@@ -25,10 +15,10 @@ function Answers({ choices, correctAnswer, setCorrectCount, correctCount }) {
     if (!clicked[questionId] === true) {
       if (answer === correctAnswer) {
         // If the answer is correct, set all answers to "clicked"
-        setClicked(prevState => ({ ...prevState,
-          [questionId]: true }));
+        setClicked(prevState => ({ ...prevState, [questionId]: true }));
         setIsCorrect(prevState => ({ ...prevState, [questionId]: true }));
-        setShouldUpdateCorrectCount(true);
+        setCorrectCount(prevState => prevState + 1);
+        // setShouldUpdateCorrectCount(true);
       } else {
         setClicked(prevState => ({ ...prevState, [questionId]: true }));
         setIsCorrect(prevState => ({ ...prevState, [questionId]: false }));
