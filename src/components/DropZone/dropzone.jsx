@@ -5,16 +5,13 @@ const DropZone = () => {
 
 
   const uploadFile = (event) => {
-    const handleFileChange = (event) => {
-      const file = event.target.files[0];
-      setSelectedFile(file);
-    };
+    const file = event.target.files[0];
+    setSelectedFile(file);
+
 
     const formData = new FormData();
 
-    // Add the document file
-    // Replace 'document.pdf' with the actual file object you want to send
-    formData.append('file', handleFileChange);
+    formData.append('file', file);
 
     fetch('http://localhost:3000/api/v1/tests', {
       method: 'POST',
@@ -22,10 +19,10 @@ const DropZone = () => {
     })
     .then(response => response.json())
     .then(result => {
-      console.log('Success:', result);
+      console.log('Success: uploading file', result);
     })
     .catch(error => {
-      console.error('Error:', error);
+      console.error('Error: uploading file', error);
     });
   }
 
