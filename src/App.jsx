@@ -11,7 +11,7 @@ export default function App() {
   const [clicked, setClicked] = useState(false);
 
   React.useEffect(() => {
-    const url = "http://localhost:3000/api/v1/tests/43";
+    const url = "http://localhost:3000/api/v1/tests/40";
     fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -22,7 +22,7 @@ export default function App() {
   return (
     <div className='app-frame'>
       <Navbar />
-      <Dropzone />
+      <Dropzone setTestData={setTestData}/>
       <Form setTestData={setTestData} setClicked={setClicked} />
       <div className='app-body'>
         {console.log(testData)}

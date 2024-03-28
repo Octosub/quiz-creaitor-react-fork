@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-const DropZone = () => {
+const DropZone = ({ setTestData }) => {
   const [selectedFile, setSelectedFile] = useState(null);
 
 
-  const uploadFile = (event) => {
+  const uploadFile = async (event) => {
     const file = event.target.files[0];
     setSelectedFile(file);
 
@@ -13,17 +13,13 @@ const DropZone = () => {
 
     formData.append('file', file);
 
-    fetch('http://localhost:3000/api/v1/tests', {
+    const response = await fetch('http://localhost:3000/api/v1/tests', {
       method: 'POST',
       body: formData
     })
-    .then(response => response.json())
-    .then(result => {
-      console.log('Success: uploading file', result);
-    })
-    .catch(error => {
-      console.error('Error: uploading file', error);
-    });
+    const data = await response.json();
+    setTestData(data);
+    console.log(JSON.stringify(formData));
   }
 
   return (
