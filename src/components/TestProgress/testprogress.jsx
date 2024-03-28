@@ -10,7 +10,7 @@ export default function Testprogress({ testData, correctCount, countdown }) {
         </div>
         <div className='test'>
           <>
-            <Timer time={testData && testData.time} countdown={countdown} />
+            <Timer time={testData.time} countdown={countdown} />
           </>
           <div className='challenges'>
           </div>

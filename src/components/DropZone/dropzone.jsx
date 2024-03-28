@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
-const DropZone = ({ setTestData }) => {
+const DropZone = ({ setTestData, setStartTimer }) => {
   const [selectedFile, setSelectedFile] = useState(null);
-
 
   const uploadFile = async (event) => {
     const file = event.target.files[0];
@@ -15,11 +14,12 @@ const DropZone = ({ setTestData }) => {
     const response = await fetch('http://localhost:3000/api/v1/tests', {
       method: 'POST',
       body: formData
-    })
+    });
     const data = await response.json();
     setTestData(data);
     console.log(JSON.stringify(formData));
-  }
+    setStartTimer(true);
+  };
 
   return (
     <div>
