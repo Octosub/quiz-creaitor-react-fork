@@ -21,7 +21,8 @@ export default function App() {
 
   return (
     <div className='app-frame'>
-      <div className='banner'></div>
+      <div className='banner'>
+      </div>
       <div className='app-body'>
         <Dropzone setTestData={setTestData}/>
         <Form setTestData={setTestData} />
