@@ -8,7 +8,6 @@ const DropZone = ({ setTestData }) => {
     const file = event.target.files[0];
     setSelectedFile(file);
 
-
     const formData = new FormData();
 
     formData.append('file', file);

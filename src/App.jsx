@@ -21,12 +21,14 @@ export default function App() {
 
   return (
     <div className='app-frame'>
-      <Navbar />
-      <Dropzone setTestData={setTestData}/>
-      <Form setTestData={setTestData} setClicked={setClicked} />
+      <div className='banner'></div>
       <div className='app-body'>
+        <Dropzone setTestData={setTestData}/>
+        <Form setTestData={setTestData} />
         {console.log(testData)}
-        {testData ? <Test test={testData} /> : 'Loading...'}
+        <div className="test-container">
+          {testData ? <Test test={testData} /> : 'Loading...'}
+        </div>
         {/* {testData ? <Test test={testData} clicked={clicked} setClicked={setClicked}/> : 'Loading...'} */}
       </div>
     </div>
