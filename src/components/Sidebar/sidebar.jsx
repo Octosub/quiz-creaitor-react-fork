@@ -7,7 +7,7 @@ export default function Sidebar({ setTestData, testData, correctCount }) {
 
     return (
       <>
-      <div className="sidebar">
+      <div>
       <div className="sidebar-head">
         <button onClick={() => setShowDropzone(true)} disabled={showDropzone}>
           Upload New Test

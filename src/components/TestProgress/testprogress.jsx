@@ -5,7 +5,7 @@ export default function Testprogress({ testData, correctCount }) {
   return (
     <>
       {/* {console.log(testData.time)} */}
-      <div className="sidebar">
+      <div>
         <div className='score'>
           {correctCount !== null && <p>Current Score: {correctCount * 10}/{testData && <p>{testData.max_score}</p>}</p>}
         </div>
