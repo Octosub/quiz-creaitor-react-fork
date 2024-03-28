@@ -1,8 +1,9 @@
 import "./App.css";
 import React from "react";
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
 import Test from "./components/Test/test";
-import Dropzone from "./components/DropZone/dropzone";
+// import Dropzone from "./components/DropZone/dropzone";
+import Sidebar from "./components/Sidebar/sidebar";
 
 export default function App() {
   const [testData, setTestData] = React.useState(null);
@@ -21,8 +22,9 @@ export default function App() {
       <div className='banner'>
       </div>
       <div className='app-body'>
-        <Dropzone setTestData={setTestData}/>
-        <Form setTestData={setTestData} />
+        <div className="sidebar">
+          <Sidebar setTestData={setTestData} testData={testData}/>
+        </div>
         {console.log(testData)}
         <div className="test-container">
           {testData ? <Test test={testData} /> : 'Loading...'}
