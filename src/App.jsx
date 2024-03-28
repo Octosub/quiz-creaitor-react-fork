@@ -3,15 +3,12 @@ import React from "react";
 import logo from "./assets/qanki-logo.jpg";
 import Test from "./components/Test/test";
 import Dropzone from "./components/DropZone/dropzone";
-import Form from "./components/Form/form";
-// import { useState } from 'react';
 
 export default function App() {
   const [testData, setTestData] = React.useState(null);
-  // const [clicked, setClicked] = useState(false);
 
   React.useEffect(() => {
-    const url = "http://localhost:3000/api/v1/tests/40";
+    const url = "http://localhost:3000/api/v1/tests/77";
     fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -32,7 +29,6 @@ export default function App() {
         <div className="test-container">
           {testData ? <Test test={testData} /> : 'Loading...'}
         </div>
-        {/* {testData ? <Test test={testData} clicked={clicked} setClicked={setClicked}/> : 'Loading...'} */}
       </div>
     </div>
   );

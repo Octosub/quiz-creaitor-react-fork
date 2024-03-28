@@ -2,26 +2,30 @@ import React from 'react';
 import { useState } from 'react';
 import './answers.css';
 
+
 function Answers({ choices, correctAnswer, setCorrectCount}) {
   const [isCorrect, setIsCorrect] = useState({});
   const [clicked, setClicked] = useState({});
+  const [scrambled_order, setScrambledOrder] = useState([1, 2, 3, 4]);
+
 
   const handleAnswerClick = (answer, choiceId) => {
     console.log(`Clicked answer: ${answer}`);
     if (!clicked[choiceId] === true) {
+      let newClicked = { ...clicked };
+      let newIsCorrect = { ...isCorrect };
       if (answer === correctAnswer) {
-        console.log(Object.keys(choices));
-        Object.keys(choices).forEach(choiceId => {
-          setClicked(prevState => ({ ...prevState, [choiceId]: true }));
-          console.log(choiceId);
-        });
-        setIsCorrect(prevState => ({ ...prevState, [choiceId]: true }));
+        newIsCorrect[choiceId] = true;
         setCorrectCount(prevState => prevState + 1);
       } else {
-        setClicked(prevState => ({ ...prevState, [choiceId]: true }));
-        console.log(choiceId);
-        setIsCorrect(prevState => ({ ...prevState, [choiceId]: false }));
+        newClicked[choiceId] = true;
+        newIsCorrect[choiceId] = false;
       }
+      setClicked(newClicked);
+      setIsCorrect(newIsCorrect);
+      Object.keys(choices).forEach(choiceId => {
+        newClicked[choiceId] = true;
+      });
     }
   };
 
@@ -33,13 +37,24 @@ function Answers({ choices, correctAnswer, setCorrectCount}) {
     }
   };
 
-  let order = [1, 2, 3, 4];
+  const abcd = ['a', 'b', 'c', 'd'];
+
+  useEffect(() => {
+    let order = [...scrambled_order];
+    for (let i = order.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    setScrambledOrder(order);
+  }, []);
+
   return (
     <>
+
       <div className='app-body answers'>
-        {order.map((index) => (
+        {scrambled_order.map((index, i) => (
           <button
-            key={`choice${index}`}
+            key={`ch</div>oice${index}`}
             onClick={() => handleAnswerClick(choices[`choice${index}`], `choice${index}`)}
             style={{
               backgroundColor:
@@ -51,10 +66,10 @@ function Answers({ choices, correctAnswer, setCorrectCount}) {
                   : 'gray',
             }}
           >
-            {choices[`choice${index}`]}
+
+            {`${abcd[i]}: ${choices[`choice${index}`]}`}
           </button>
         ))}
-        {/* {isCorrect === null ? <p></p> : isCorrect ? <p>Correct!</p> : <p>Incorrect</p>} */}
       </div>
     </>
   );
