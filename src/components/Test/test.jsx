@@ -17,13 +17,7 @@ function Test({test, setCorrectCount, correctCount}) {
 
   return (
     <>
-    <div className='score'>
-      <h5>Your current score: {correctCount * 10}</h5>
-    </div>
     <div className='test'>
-      <p>ID: {test.id}</p>
-      <p>Max Score: {test.max_score}</p>
-      <p>Time: {test.time}</p>
       <div className='challenges'>
         {/* {challengeArray ? <QuestionBox challenge={challengeArray} clicked={clicked} setClicked={setClicked} setCorrectCount={setCorrectCount} correctCount={correctCount}/> : 'Loading...'} */}
         {challengeArray ? <QuestionBox challenge={challengeArray} setCorrectCount={setCorrectCount} correctCount={correctCount}/> : 'Loading...'}
