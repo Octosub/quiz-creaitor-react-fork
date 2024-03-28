@@ -23,13 +23,15 @@ export default function App() {
         <div className="sidebar">
           <Sidebar setTestData={setTestData} testData={testData}/>
         </div>
-        <div className="banner">
-          <h1 className="title">Qanki</h1>
-          <img className="logo" src={logo} alt="logo of qanki" />
-        </div>
-        {console.log(testData)}
-        <div className="test-container">
-          {testData ? <Test test={testData} /> : 'Loading...'}
+        <div>
+          <div className="banner">
+            <h1 className="title">Qanki</h1>
+            <img className="logo" src={logo} alt="logo of qanki" />
+          </div>
+          {console.log(testData)}
+          <div className="test-container">
+            {testData ? <Test test={testData} /> : 'Loading...'}
+          </div>
         </div>
       </div>
     </div>
