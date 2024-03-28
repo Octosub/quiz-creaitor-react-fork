@@ -49,7 +49,7 @@ function Answers({ choices, correctAnswer, setCorrectCount}) {
   return (
     <>
       <div className='app-body'>
-        {scrambled_order.map((index, i) => (
+        {scrambled_order.map((index) => (
           <button
             key={`ch</div>oice${index}`}
             onClick={() => handleAnswerClick(choices[`choice${index}`], `choice${index}`)}
@@ -63,7 +63,7 @@ function Answers({ choices, correctAnswer, setCorrectCount}) {
                   : 'gray',
             }}
           >
-            {`${abcd[i]}: ${choices[`choice${index}`]}`}
+            {`${choices[`choice${index}`]}`}
           </button>
         ))}
       </div>
