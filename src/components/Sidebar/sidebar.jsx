@@ -3,7 +3,7 @@ import TestProgress from "../TestProgress/testprogress";
 import { useState } from 'react';
 
 export default function Sidebar({ setTestData, testData, correctCount, countdown, setStartTimer }) {
-  const [showDropzone, setShowDropzone] = useState(true);
+  const [showDropzone, setShowDropzone] = useState(false);
 
     return (
       <>
