@@ -1,8 +1,8 @@
 import Dropzone from "../DropZone/dropzone";
 import TestProgress from "../TestProgress/testprogress";
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-export default function Sidebar({ setTestData, testData, correctCount }) {
+export default function Sidebar({ setTestData, testData, correctCount, countdown, setCountdown }) {
   const [showDropzone, setShowDropzone] = useState(true);
 
     return (
@@ -24,7 +24,7 @@ export default function Sidebar({ setTestData, testData, correctCount }) {
           </div>
         ) : (
           <div className="test-progress">
-            <TestProgress testData={testData} correctCount={correctCount}/>
+            <TestProgress testData={testData} correctCount={correctCount} countdown={countdown} setCountdown={setCountdown}/>
           </div>
         )}
       </div>

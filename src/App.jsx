@@ -10,6 +10,7 @@ import { useState } from 'react';
 export default function App() {
   const [testData, setTestData] = React.useState(null);
   const [correctCount, setCorrectCount] = useState(0);
+  const [countdown, setCountdown] = useState(null);
 
   React.useEffect(() => {
     const url = "http://localhost:3000/api/v1/tests/77";
@@ -17,6 +18,7 @@ export default function App() {
     .then(response => response.json())
     .then(data => {
       setTestData(data);
+      setCountdown(data.time / 1000); // Set initial countdown value when testData is fetched
     });
   }, []);
 
@@ -24,7 +26,7 @@ export default function App() {
     <div className='app-frame'>
       <div className='app-body'>
         <div className="sidebar">
-          <Sidebar setTestData={setTestData} testData={testData} correctCount={correctCount}/>
+          <Sidebar setTestData={setTestData} testData={testData} correctCount={correctCount} countdown={countdown} setCountdown={setCountdown}/>
         </div>
         <div className="test-side">
           <div className="banner">

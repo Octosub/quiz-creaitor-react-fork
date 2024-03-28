@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react';
-export default function Testprogress({ time }) {
+import React, { useEffect } from 'react';
+export default function Timer({ time, countdown, setCountdown }) {
 
-  const [countdown, setCountdown] = useState(null);
-
-  useEffect(() => {
-    if (time) {
-      setCountdown(time / 1000);
-    }
-  }, [time]);
+  // useEffect(() => {
+  //   if (time) {
+  //     setCountdown(time / 1000);
+  //   }
+  // }, [time]);
 
   useEffect(() => {
     const timerId = setInterval(() => {
@@ -23,8 +21,7 @@ export default function Testprogress({ time }) {
       });
     }, 1000); // Update every second
     return () => clearInterval(timerId);
-  }, []);
-
+  }, []); // Add countdown as a dependency
 
   const minutes = Math.floor(countdown / 60);
   const seconds = countdown % 60;

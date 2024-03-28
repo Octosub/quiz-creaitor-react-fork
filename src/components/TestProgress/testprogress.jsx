@@ -1,6 +1,6 @@
 import Timer from '../Timer/timer';
 
-export default function Testprogress({ testData, correctCount }) {
+export default function Testprogress({ testData, correctCount, countdown, setCountdown }) {
 
   return (
     <>
@@ -11,7 +11,7 @@ export default function Testprogress({ testData, correctCount }) {
         </div>
         <div className='test'>
           <>
-            <Timer time={testData && testData.time}/>
+            <Timer time={testData && testData.time} countdown={countdown} setCountdown={setCountdown}/>
           </>
           <div className='challenges'>
           </div>
