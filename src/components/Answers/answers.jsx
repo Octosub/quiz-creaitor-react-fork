@@ -37,8 +37,6 @@ function Answers({ choices, correctAnswer, setCorrectCount}) {
     }
   };
 
-  const abcd = ['a', 'b', 'c', 'd'];
-
   useEffect(() => {
     let order = [...scrambled_order];
     for (let i = order.length - 1; i > 0; i--) {

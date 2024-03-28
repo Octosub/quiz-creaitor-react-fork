@@ -1,11 +1,11 @@
 import React from 'react';
 import "./test.css";
 import QuestionBox from '../QuestionBox/questionbox';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 // function Test({test, clicked, setClicked}) {
-function Test({test}) {
-  const [correctCount, setCorrectCount] = useState(0);
+function Test({test, setCorrectCount, correctCount}) {
+  // const [correctCount, setCorrectCount] = useState(0);
 
   let challengeArray;
   if (typeof test.challenges === 'string') {
