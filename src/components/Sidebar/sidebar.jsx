@@ -1,7 +1,7 @@
 import Dropzone from "../DropZone/dropzone";
 import TestProgress from "../TestProgress/testprogress";
 
-export default function Sidebar({ setTestData, testData }) {
+export default function Sidebar({ setTestData, testData, correctCount }) {
     return (
       <>
       <div className="sidebar">
@@ -12,7 +12,7 @@ export default function Sidebar({ setTestData, testData }) {
           <Dropzone setTestData={setTestData} />
         </div>
         <div className="test-prgress">
-          <TestProgress testData={testData} />
+          <TestProgress testData={testData} correctCount={correctCount}/>
         </div>
       </div>
       </>

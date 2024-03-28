@@ -24,7 +24,7 @@ export default function App() {
     <div className='app-frame'>
       <div className='app-body'>
         <div className="sidebar">
-          <Sidebar setTestData={setTestData} testData={testData}/>
+          <Sidebar setTestData={setTestData} testData={testData} correctCount={correctCount}/>
         </div>
         <div className="test-side">
           <div className="banner">
@@ -33,7 +33,7 @@ export default function App() {
           </div>
           {console.log(testData)}
           <div className="test-container">
-            {testData ? <Test test={testData} correctCount={correctCount} setCorrectCount={setCorrectCount} /> : 'Loading...'}
+            {testData ? <Test test={testData} setCorrectCount={setCorrectCount} /> : 'Loading...'}
           </div>
         </div>
       </div>

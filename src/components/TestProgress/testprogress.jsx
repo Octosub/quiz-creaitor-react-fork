@@ -1,33 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import Timer from '../Timer/timer';
 
-export default function Testprogress({ testData }) {
-  const [countdown, setCountdown] = useState(null);
-
-  useEffect(() => {
-    if (testData) {
-      setCountdown(testData.time / 1000);
-    }
-  }, [testData]);
-
-  useEffect(() => {
-    const timerId = setInterval(() => {
-      setCountdown((prevCountdown) => {
-        if (prevCountdown <= 1) {
-          // Clear interval if countdown is 0 or less
-          clearInterval(timerId);
-          return 0;
-        } else {
-          // Otherwise, decrease countdown
-          return prevCountdown - 1;
-        }
-      });
-    }, 1000); // Update every second
-    return () => clearInterval(timerId);
-  }, []);
-
-
-  const minutes = Math.floor(countdown / 60);
-  const seconds = countdown % 60;
+export default function Testprogress({ testData, currentCount }) {
 
   return (
     <>
@@ -38,8 +11,9 @@ export default function Testprogress({ testData }) {
         </div>
         <div className='test'>
           <>
+            {currentCount && <p>Current Score: {currentCount * 10}</p>}
             {testData && <p>Max Score: {testData.max_score}</p>}
-            <p>Time: {minutes}:{seconds < 10 ? '0' : ''}{seconds}</p>
+            <Timer time={testData && testData.time}/>
           </>
           <div className='challenges'>
           </div>
@@ -47,4 +21,4 @@ export default function Testprogress({ testData }) {
       </div>
     </>
   );
-};
+}
