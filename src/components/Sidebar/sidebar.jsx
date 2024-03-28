@@ -2,6 +2,7 @@ import Dropzone from "../DropZone/dropzone";
 import TestProgress from "../TestProgress/testprogress";
 
 export default function Sidebar({ setTestData, testData, correctCount }) {
+  console.log(correctCount);
     return (
       <>
       <div className="sidebar">
