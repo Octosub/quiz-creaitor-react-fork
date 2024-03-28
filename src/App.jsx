@@ -18,11 +18,15 @@ export default function App() {
 
   return (
     <div className='app-frame'>
-      <Navbar />
-      <Dropzone setTestData={setTestData}/>
+      <div className='banner'>
+      </div>
       <div className='app-body'>
+        <Dropzone setTestData={setTestData}/>
+        <Form setTestData={setTestData} />
         {console.log(testData)}
-        {testData ? <Test test={testData} /> : 'Loading...'}
+        <div className="test-container">
+          {testData ? <Test test={testData} /> : 'Loading...'}
+        </div>
       </div>
     </div>
   );
