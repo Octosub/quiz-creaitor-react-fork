@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import Navbar from "./components/Navbar";
+import logo from "./assets/qanki-logo.jpg";
 import Test from "./components/Test/test";
 import Dropzone from "./components/DropZone/dropzone";
 
@@ -18,9 +18,11 @@ export default function App() {
 
   return (
     <div className='app-frame'>
-      <div className='banner'>
-      </div>
       <div className='app-body'>
+        <div className="banner">
+          <h1 className="title">Qanki</h1>
+          <img className="logo" src={logo} alt="logo of qanki" />
+        </div>
         <Dropzone setTestData={setTestData}/>
         <Form setTestData={setTestData} />
         {console.log(testData)}

@@ -1,5 +1,7 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import './answers.css';
+
 
 function Answers({ choices, correctAnswer, setCorrectCount}) {
   const [isCorrect, setIsCorrect] = useState({});
@@ -48,7 +50,8 @@ function Answers({ choices, correctAnswer, setCorrectCount}) {
 
   return (
     <>
-      <div className='app-body'>
+
+      <div className='app-body answers'>
         {scrambled_order.map((index, i) => (
           <button
             key={`ch</div>oice${index}`}
@@ -63,6 +66,7 @@ function Answers({ choices, correctAnswer, setCorrectCount}) {
                   : 'gray',
             }}
           >
+
             {`${abcd[i]}: ${choices[`choice${index}`]}`}
           </button>
         ))}
