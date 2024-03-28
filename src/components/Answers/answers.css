@@ -1,0 +1,13 @@
+.answers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 70%;
+  width: 100%;
+}
+
+.answers button {
+  width: 100%;
+  margin: 0 10px;
+  height: 100%;
+}

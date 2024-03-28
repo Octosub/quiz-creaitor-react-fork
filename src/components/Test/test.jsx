@@ -1,5 +1,5 @@
 import React from 'react';
-// import "./Test.css";
+import "./test.css";
 import QuestionBox from '../QuestionBox/questionbox';
 import { useState } from 'react';
 
@@ -28,8 +28,6 @@ function Test({test}) {
         {/* {challengeArray ? <QuestionBox challenge={challengeArray} clicked={clicked} setClicked={setClicked} setCorrectCount={setCorrectCount} correctCount={correctCount}/> : 'Loading...'} */}
         {challengeArray ? <QuestionBox challenge={challengeArray} setCorrectCount={setCorrectCount} correctCount={correctCount}/> : 'Loading...'}
       </div>
-      <p>Created At: {test.created_at}</p>
-      <p>Updated At: {test.updated_at}</p>
     </div>
     </>
   );

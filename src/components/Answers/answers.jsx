@@ -1,5 +1,7 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import './answers.css';
+
 
 function Answers({ choices, correctAnswer, setCorrectCount}) {
   const [isCorrect, setIsCorrect] = useState({});
@@ -50,6 +52,7 @@ function Answers({ choices, correctAnswer, setCorrectCount}) {
     <>
       <div className='app-body'>
         {scrambled_order.map((index) => (
+
           <button
             key={`ch</div>oice${index}`}
             onClick={() => handleAnswerClick(choices[`choice${index}`], `choice${index}`)}

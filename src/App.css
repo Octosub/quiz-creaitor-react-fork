@@ -1,7 +1,5 @@
 .app-frame {
   height: 100%;
-  width: 100vw;
-  background-color: #BB9457;
 }
 
 .app-body {
@@ -12,9 +10,14 @@
 }
 
 .banner {
-  height: 10vh;
-  background-color: red;
-  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  height: 200px;
+}
+
+.logo {
+  width: 140px;
+  height: auto;
 }
 
 .sidebar {
