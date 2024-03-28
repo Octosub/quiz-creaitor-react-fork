@@ -1,19 +1,22 @@
-export default function Testprogress({ testData }) {
-    return (
-      <>
-      {/* {console.log(testData.id)} */}
+import Timer from '../Timer/timer';
+
+export default function Testprogress({ testData, correctCount }) {
+
+  return (
+    <>
+      {/* {console.log(testData.time)} */}
       <div className="sidebar">
         <div className='score'>
-          {/* <h5>Your current score: {correctCount * 10}</h5> */}
+          {correctCount !== null && <p>Current Score: {correctCount * 10}/{testData && <p>{testData.max_score}</p>}</p>}
         </div>
-      <div className='test'>
-        {/* <p>ID: {testData.id}</p>
-        <p>Max Score: {testData.max_score}</p>
-        <p>Time: {testData.time}</p> */}
-        <div className='challenges'>
+        <div className='test'>
+          <>
+            <Timer time={testData && testData.time}/>
+          </>
+          <div className='challenges'>
+          </div>
         </div>
       </div>
-      </div>
-      </>
-    );
+    </>
+  );
 }
