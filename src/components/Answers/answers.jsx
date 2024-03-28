@@ -5,34 +5,21 @@ function Answers({ choices, correctAnswer, setCorrectCount}) {
   const [isCorrect, setIsCorrect] = useState({});
   const [clicked, setClicked] = useState({});
 
-  const handleAnswerClick = (answer, questionId) => {
+  const handleAnswerClick = (answer, choiceId) => {
     console.log(`Clicked answer: ${answer}`);
-    // console.log(choices);
-    // console.log(questionId);
-    // console.log(typeof(questionId));
-    // console.log(questionId === 'question3');
-    // console.log(clicked[questionId]);
-    if (!clicked[questionId] === true) {
+    if (!clicked[choiceId] === true) {
       if (answer === correctAnswer) {
-        // If the answer is correct, set all answers to "clicked"
         console.log(Object.keys(choices));
-        Object.keys(choices).forEach(questionId => {
-          setClicked(prevState => ({ ...prevState, [questionId]: true }));
-          console.log(questionId);
+        Object.keys(choices).forEach(choiceId => {
+          setClicked(prevState => ({ ...prevState, [choiceId]: true }));
+          console.log(choiceId);
         });
-        // setClicked(prevState => ({ ...prevState,
-        //   ...Object.values(choices).forEach(value => {
-        //     [questionId] = true;
-        //     console.log(value);
-        //   })
-        // }));
-        setIsCorrect(prevState => ({ ...prevState, [questionId]: true }));
+        setIsCorrect(prevState => ({ ...prevState, [choiceId]: true }));
         setCorrectCount(prevState => prevState + 1);
-        // setShouldUpdateCorrectCount(true);
       } else {
-        setClicked(prevState => ({ ...prevState, [questionId]: true }));
-        console.log(questionId);
-        setIsCorrect(prevState => ({ ...prevState, [questionId]: false }));
+        setClicked(prevState => ({ ...prevState, [choiceId]: true }));
+        console.log(choiceId);
+        setIsCorrect(prevState => ({ ...prevState, [choiceId]: false }));
       }
     }
   };
@@ -49,26 +36,26 @@ function Answers({ choices, correctAnswer, setCorrectCount}) {
     <>
     <div className='app-body'>
         <button
-          onClick={() => handleAnswerClick(choices.choice1, 'question1')}
-          style={{ backgroundColor: clicked['question1'] && (checkIfCorrect(choices.choice1) || correctAnswer === 'choice1') ? 'green' : clicked['question1'] ? 'red' : 'gray' }}
+          onClick={() => handleAnswerClick(choices.choice1, 'choice1')}
+          style={{ backgroundColor: clicked['choice1'] && (checkIfCorrect(choices.choice1) || correctAnswer === 'choice1') ? 'green' : clicked['choice1'] ? 'red' : 'gray' }}
         >
           a: {choices.choice1}
         </button>
         <button
-          onClick={() => handleAnswerClick(choices.choice2, 'question2')}
-          style={{ backgroundColor: clicked['question2'] && (checkIfCorrect(choices.choice2) || correctAnswer === 'choice2') ? 'green' : clicked['question2'] ? 'red' : 'gray' }}
+          onClick={() => handleAnswerClick(choices.choice2, 'choice2')}
+          style={{ backgroundColor: clicked['choice2'] && (checkIfCorrect(choices.choice2) || correctAnswer === 'choice2') ? 'green' : clicked['choice2'] ? 'red' : 'gray' }}
         >
           b: {choices.choice2}
         </button>
         <button
-          onClick={() => handleAnswerClick(choices.choice3, 'question3')}
-          style={{ backgroundColor: clicked['question3'] && (checkIfCorrect(choices.choice3) || correctAnswer === 'choice3') ? 'green' : clicked['question3'] ? 'red' : 'gray' }}
+          onClick={() => handleAnswerClick(choices.choice3, 'choice3')}
+          style={{ backgroundColor: clicked['choice3'] && (checkIfCorrect(choices.choice3) || correctAnswer === 'choice3') ? 'green' : clicked['choice3'] ? 'red' : 'gray' }}
         >
           c: {choices.choice3}
         </button>
         <button
-          onClick={() => handleAnswerClick(choices.choice4, 'question4')}
-          style={{ backgroundColor: clicked['question4'] && (checkIfCorrect(choices.choice4) || correctAnswer === 'choice4') ? 'green' : clicked['question4'] ? 'red' : 'gray' }}
+          onClick={() => handleAnswerClick(choices.choice4, 'choice4')}
+          style={{ backgroundColor: clicked['choice4'] && (checkIfCorrect(choices.choice4) || correctAnswer === 'choice4') ? 'green' : clicked['choice4'] ? 'red' : 'gray' }}
         >
           d: {choices.choice4}
         </button>
