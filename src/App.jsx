@@ -23,7 +23,6 @@ export default function App() {
     <div className='app-frame'>
       <Navbar />
       <Dropzone setTestData={setTestData}/>
-      <Form setTestData={setTestData} setClicked={setClicked} />
       <div className='app-body'>
         {console.log(testData)}
         {testData ? <Test test={testData} /> : 'Loading...'}
