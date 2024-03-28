@@ -7,7 +7,7 @@ function Answers({ choices, correctAnswer, setCorrectCount}) {
 
   const handleAnswerClick = (answer, questionId) => {
     console.log(`Clicked answer: ${answer}`);
-    console.log(choices);
+    // console.log(choices);
     // console.log(questionId);
     // console.log(typeof(questionId));
     // console.log(questionId === 'question3');
@@ -15,12 +15,23 @@ function Answers({ choices, correctAnswer, setCorrectCount}) {
     if (!clicked[questionId] === true) {
       if (answer === correctAnswer) {
         // If the answer is correct, set all answers to "clicked"
-        setClicked(prevState => ({ ...prevState, [questionId]: true }));
+        console.log(Object.keys(choices));
+        Object.keys(choices).forEach(questionId => {
+          setClicked(prevState => ({ ...prevState, [questionId]: true }));
+          console.log(questionId);
+        });
+        // setClicked(prevState => ({ ...prevState,
+        //   ...Object.values(choices).forEach(value => {
+        //     [questionId] = true;
+        //     console.log(value);
+        //   })
+        // }));
         setIsCorrect(prevState => ({ ...prevState, [questionId]: true }));
         setCorrectCount(prevState => prevState + 1);
         // setShouldUpdateCorrectCount(true);
       } else {
         setClicked(prevState => ({ ...prevState, [questionId]: true }));
+        console.log(questionId);
         setIsCorrect(prevState => ({ ...prevState, [questionId]: false }));
       }
     }
