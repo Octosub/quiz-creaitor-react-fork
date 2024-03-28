@@ -50,7 +50,7 @@ function Answers({ choices, correctAnswer, setCorrectCount}) {
 
   return (
     <>
-      <div className='app-body'>
+      <div className='answers-container'>
         {scrambled_order.map((index) => (
 
           <button
