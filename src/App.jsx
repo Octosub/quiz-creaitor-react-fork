@@ -23,7 +23,7 @@ export default function App() {
         <div className="sidebar">
           <Sidebar setTestData={setTestData} testData={testData}/>
         </div>
-        <div>
+        <div className="test-side">
           <div className="banner">
             <h1 className="title">Qanki</h1>
             <img className="logo" src={logo} alt="logo of qanki" />
