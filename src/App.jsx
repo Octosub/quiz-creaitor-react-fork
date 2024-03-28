@@ -12,14 +12,18 @@ export default function App() {
   const [correctCount, setCorrectCount] = useState(0);
   const [countdown, setCountdown] = useState(null);
 
+  // React.useEffect(() => {
+  //   const url = "http://localhost:3000/api/v1/tests/77";
+  //   fetch(url)
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     setTestData(data);
+  //     setCountdown(data.time / 1000); // Set initial countdown value when testData is fetched
+  //   });
+  // }, []);
   React.useEffect(() => {
-    const url = "http://localhost:3000/api/v1/tests/77";
-    fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      setTestData(data);
-      setCountdown(data.time / 1000); // Set initial countdown value when testData is fetched
-    });
+    setTestData(null);
+    setCountdown(null); // Set initial countdown value
   }, []);
 
   useEffect(() => {
@@ -50,9 +54,15 @@ export default function App() {
             <img className="logo" src={logo} alt="logo of qanki" />
           </div>
           {/* {console.log(testData)} */}
-          <div className="test-container">
-            {testData ? <Test test={testData} setCorrectCount={setCorrectCount} /> : 'Loading...'}
-          </div>
+          {testData == null ? (
+            <div className="dropzone">
+              <h1>Upload Your First Test!</h1>
+            </div>
+          ) : (
+            <div className="test-container">
+              {testData ? <Test test={testData} setCorrectCount={setCorrectCount} /> : 'Loading...'}
+            </div>
+          )}
         </div>
       </div>
     </div>
