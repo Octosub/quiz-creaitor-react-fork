@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import './answers.css';
 
 function Answers({ choices, correctAnswer, setCorrectCount}) {
   const [isCorrect, setIsCorrect] = useState({});
@@ -35,7 +36,7 @@ function Answers({ choices, correctAnswer, setCorrectCount}) {
   let order = [1, 2, 3, 4];
   return (
     <>
-      <div className='app-body'>
+      <div className='app-body answers'>
         {order.map((index) => (
           <button
             key={`choice${index}`}
@@ -50,7 +51,7 @@ function Answers({ choices, correctAnswer, setCorrectCount}) {
                   : 'gray',
             }}
           >
-            {String.fromCharCode(96 + index)}: {choices[`choice${index}`]}
+            {choices[`choice${index}`]}
           </button>
         ))}
         {/* {isCorrect === null ? <p></p> : isCorrect ? <p>Correct!</p> : <p>Incorrect</p>} */}
