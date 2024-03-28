@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
-
-class testprogress extends Component {
-  render() {
+export default function Testprogress({ testData }) {
     return (
-      <div>
-        
+      <>
+      <div className="sidebar">
+        Timer
       </div>
+      </>
     );
-  }
 }
-
-export default testprogress;
