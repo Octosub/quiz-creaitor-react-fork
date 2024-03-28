@@ -28,7 +28,7 @@ export default function App() {
         </div>
         <div className="test-side">
           <div className="banner">
-            <h1 className="title">Qanki</h1>
+            <h1 className="title">Quanki</h1>
             <img className="logo" src={logo} alt="logo of qanki" />
           </div>
           {console.log(testData)}
