@@ -4,7 +4,7 @@ import logo from "./assets/qanki-logo.jpg";
 import Test from "./components/Test/test";
 // import Dropzone from "./components/DropZone/dropzone";
 import Sidebar from "./components/Sidebar/sidebar";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 export default function App() {
@@ -22,18 +22,34 @@ export default function App() {
     });
   }, []);
 
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      setCountdown((prevCountdown) => {
+        if (prevCountdown <= 1) {
+          // Clear interval if countdown is 0 or less
+          clearInterval(timerId);
+          return 0;
+        } else {
+          // Otherwise, decrease countdown
+          return prevCountdown - 1;
+        }
+      });
+    }, 1000); // Update every second
+    return () => clearInterval(timerId);
+  }, []); // Add countdown as a dependency
+
   return (
     <div className='app-frame'>
       <div className='app-body'>
         <div className="sidebar">
-          <Sidebar setTestData={setTestData} testData={testData} correctCount={correctCount} countdown={countdown} setCountdown={setCountdown}/>
+          <Sidebar setTestData={setTestData} testData={testData} correctCount={correctCount} countdown={countdown}/>
         </div>
         <div className="test-side">
           <div className="banner">
             <h1 className="title">Quanki</h1>
             <img className="logo" src={logo} alt="logo of qanki" />
           </div>
-          {console.log(testData)}
+          {/* {console.log(testData)} */}
           <div className="test-container">
             {testData ? <Test test={testData} setCorrectCount={setCorrectCount} /> : 'Loading...'}
           </div>

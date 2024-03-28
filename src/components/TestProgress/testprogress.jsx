@@ -1,17 +1,16 @@
 import Timer from '../Timer/timer';
 
-export default function Testprogress({ testData, correctCount, countdown, setCountdown }) {
+export default function Testprogress({ testData, correctCount, countdown }) {
 
   return (
     <>
-      {/* {console.log(testData.time)} */}
       <div>
         <div className='score'>
-          {correctCount !== null && <p>Current Score: {correctCount * 10}/{testData && <p>{testData.max_score}</p>}</p>}
+          {correctCount !== null && <p>Current Score: {correctCount * 10}/{testData && <span>{testData.max_score}</span>}</p>}
         </div>
         <div className='test'>
           <>
-            <Timer time={testData && testData.time} countdown={countdown} setCountdown={setCountdown}/>
+            <Timer time={testData && testData.time} countdown={countdown} />
           </>
           <div className='challenges'>
           </div>
