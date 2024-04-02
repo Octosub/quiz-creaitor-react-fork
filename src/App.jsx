@@ -2,9 +2,9 @@ import "./App.css";
 import React from "react";
 import logo from "./assets/quanki-logo.png";
 import Test from "./components/Test/test";
-import Dropzone from "./components/DropZone/dropzone";
 import LandingDropZone from "./components/LandingDropZone/landingdropzone";
 import Sidebar from "./components/Sidebar/sidebar";
+import FinishScreen from "./components/FinishScreen/finishscreen";
 import { useState } from 'react';
 
 
@@ -13,13 +13,15 @@ export default function App() {
   const [correctCount, setCorrectCount] = useState(0);
   const [countdown, setCountdown] = useState(null);
   const [startTimer, setStartTimer] = React.useState(false);
+  const [coundownOver, setCountdownOver] = React.useState(false);
 
   // React.useEffect(() => {
-  //   const url = "http://localhost:3000/api/v1/tests/100";
+  //   const url = "http://localhost:3000/api/v1/tests/136";
   //   fetch(url)
   //     .then(response => response.json())
   //     .then(data => {
   //       setTestData(data);
+  //       setStartTimer(true);
   //     });
   // }, []);
 
@@ -27,8 +29,7 @@ export default function App() {
     let timerId;
     if (startTimer && testData && testData.time) {
       // setStartTimer(true);
-      setCountdown(testData.time / 1000); // Set countdown value when testData changes
-      timerId = setInterval(() => {
+      setCountdown((countdown ?? testData.time) / 1000);      timerId = setInterval(() => {
         setCountdown(countdown => countdown - 1);
       }, 1000);
     }
@@ -40,6 +41,15 @@ export default function App() {
       }
     };
   }, [startTimer, testData]); // Dependency array includes startTimer and testData
+
+
+  React.useEffect(() => {
+    if (countdown === 0 || countdown < 0) {
+      setCountdownOver(true);
+      setStartTimer(false);
+      console.log('Timer has finished');
+    }
+  }, [countdown]); // Dependency array includes countdown
 
   // useEffect(() => {
   //   const timerId = setInterval(() => {
@@ -77,6 +87,7 @@ export default function App() {
               <div className="test-side">
                 <div className="test-container">
                   {testData ? <Test test={testData} setCorrectCount={setCorrectCount} /> : 'Loading...'}
+                  {coundownOver == true ? <div className="finish-screen"><FinishScreen correctCount={correctCount} setStartTimer={setStartTimer} setCountdown={setCountdown} setCountdownOver={setCountdownOver}/></div> : null}
                 </div>
               </div>
             </div>
