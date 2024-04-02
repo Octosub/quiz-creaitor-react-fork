@@ -58,10 +58,10 @@ function Answers({ choices, correctAnswer, setCorrectCount}) {
               backgroundColor:
                 clicked[`choice${index}`] &&
                 (checkIfCorrect(choices[`choice${index}`]) || correctAnswer === `choice${index}`)
-                  ? 'green'
+                  ? '#8cb369'
                   : clicked[`choice${index}`]
-                  ? 'red'
-                  : 'gray',
+                  ? '#ee6055'
+                  : '#f0ead2',
             }}
           >
             {`${choices[`choice${index}`]}`}
