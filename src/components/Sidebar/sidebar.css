@@ -1,0 +1,32 @@
+.sidebar-head {
+  position: sticky;
+  top: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  margin: 5px 0 10px 0;
+}
+
+.sidebar-head button.clicked {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+.sidebar-head button {
+  background-color: rgba(100, 100, 100, 0.3);
+  color: black;
+  border: black 1px solid;
+  border-radius: 0;
+  transition: all 0.3s ease;
+}
+
+.button-left {
+  border-top-left-radius: 8px !important;
+  border-bottom-left-radius: 8px !important;
+}
+
+.button-right {
+  border-top-right-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+}
+
