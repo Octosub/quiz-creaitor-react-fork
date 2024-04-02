@@ -3,6 +3,7 @@ import React from "react";
 import logo from "./assets/quanki-logo.png";
 import Test from "./components/Test/test";
 import Dropzone from "./components/DropZone/dropzone";
+import LandingDropZone from "./components/LandingDropZone/landingdropzone";
 import Sidebar from "./components/Sidebar/sidebar";
 import { useState } from 'react';
 
@@ -64,8 +65,7 @@ export default function App() {
         {/* {console.log(testData)} */}
         {testData == null ? (
           <div className="dropzone">
-            <h1>Upload Your First Test!</h1>
-            <Dropzone setTestData={setTestData} setStartTimer={setStartTimer} />
+            <LandingDropZone setTestData={setTestData} setStartTimer={setStartTimer} />
           </div>
         ) : (
           <>
