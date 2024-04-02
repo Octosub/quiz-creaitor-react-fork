@@ -20,7 +20,6 @@ const LandingDropZone = ({ setTestData, setStartTimer }) => {
 
   const uploadFile = async (file) => {
     setIsLoading(true);
-    sleep(1000);
     setSelectedFile(file);
 
     const formData = new FormData();
