@@ -1,5 +1,6 @@
 .app-frame {
   height: 100%;
+  width: 100%;
 }
 
 .app-body {
@@ -29,7 +30,6 @@
   align-items: center;
   justify-content: center;
   align-self: start;
-  margin: 20px;
   border: black 1px solid;
 }
 

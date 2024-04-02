@@ -47,12 +47,12 @@ export default function App() {
   return (
     <div className='app-frame'>
       {/* {console.log(testData)} */}
-      {testData == null ? (
+      {/*testData == null ? (
         <div className="dropzone">
           <h1>Upload Your First Test!</h1>
           <Dropzone setTestData={setTestData} setStartTimer={setStartTimer} />
         </div>
-        ) : (
+        ) : (*/}
         <div className='app-body'>
           <div className="sidebar">
             <Sidebar setTestData={setTestData} testData={testData} correctCount={correctCount} countdown={countdown} setStartTimer={setStartTimer}/>
@@ -68,7 +68,7 @@ export default function App() {
             </div>
           </div>
         </div>
-      )}
+      {/* )} */}
     </div>
   );
 }
