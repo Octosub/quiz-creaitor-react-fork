@@ -14,4 +14,19 @@
   width: 25%;
   margin: 0 5px;
   overflow-wrap: break-word;
+  color: white;
+}
+
+.neutral-answer {
+  background-color: #a4ac86;
+}
+
+.correct-answer {
+  background-color: #a7c957;
+  box-shadow: rgb(128, 178, 84) 0px 0px 10px;
+}
+
+.wrong-answer {
+ background-color: #bc4749;
+ box-shadow: #ec756da9 0px 0px 10px;
 }
