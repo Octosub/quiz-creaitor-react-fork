@@ -53,16 +53,16 @@ export default function App() {
           <Dropzone setTestData={setTestData} setStartTimer={setStartTimer} />
         </div>
         ) : (*/}
+        <div className="banner">
+          <h1 className="title">Quanki</h1>
+          <img className="logo" src={logo} alt="logo of qanki" />
+        </div>
         <div className='app-body'>
           <div className="sidebar">
             <Sidebar setTestData={setTestData} testData={testData} correctCount={correctCount} countdown={countdown} setStartTimer={setStartTimer}/>
             {/* <button onClick={() => setStartTimer(true)}>Start Timer</button> */}
           </div>
           <div className="test-side">
-            <div className="banner">
-              <h1 className="title">Quanki</h1>
-              <img className="logo" src={logo} alt="logo of qanki" />
-            </div>
             <div className="test-container">
               {testData ? <Test test={testData} setCorrectCount={setCorrectCount} /> : 'Loading...'}
             </div>
