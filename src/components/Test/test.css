@@ -1,1 +1,8 @@
+.test {
+  display: flex;
+  justify-content: center;
+}
 
+.challenges {
+  width: 95%;
+}
