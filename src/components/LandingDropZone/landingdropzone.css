@@ -1,15 +1,23 @@
-input {
+#landing-dropzone-field {
   width: 100%;
-  height: 100%;
+  height: 0%;
   opacity: 0;
 }
-
-
 
 .landing-dropzone-container label {
   text-align: center;
   width: 100%;
   font-size: 2rem;
+  height: 100%;
+  line-height: 800%;
+}
+
+.landing-dropzone-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50vw;
 }
 
 .landing-dropzone-wrap {
@@ -21,7 +29,6 @@ input {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20px;
 }
 
 .landing-droptext {

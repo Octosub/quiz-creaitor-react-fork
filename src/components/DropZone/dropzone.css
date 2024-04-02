@@ -4,6 +4,13 @@ input {
   opacity: 0;
 }
 
+.dropzone {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .dropzone-container {
   width: 90%;
   height: 100%;

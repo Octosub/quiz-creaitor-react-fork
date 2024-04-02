@@ -45,7 +45,6 @@
 .sidebar {
   position: sticky;
   top: 200px;
-  height: 50vh;
   margin: 20px;
   display: flex;
   flex-direction: column;
