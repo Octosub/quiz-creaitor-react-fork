@@ -14,6 +14,15 @@ export default function App() {
   const [startTimer, setStartTimer] = React.useState(false);
 
   React.useEffect(() => {
+    const url = "http://localhost:3000/api/v1/tests/100";
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        setTestData(data);
+      });
+  }, []);
+
+  React.useEffect(() => {
     let timerId;
     if (startTimer && testData && testData.time) {
       // setStartTimer(true);
@@ -22,6 +31,7 @@ export default function App() {
         setCountdown(countdown => countdown - 1);
       }, 1000);
     }
+
 
     return () => {
       if (timerId) {
@@ -47,12 +57,12 @@ export default function App() {
   return (
     <div className='app-frame'>
       {/* {console.log(testData)} */}
-      {/*testData == null ? (
+      {testData == null ? (
         <div className="dropzone">
           <h1>Upload Your First Test!</h1>
           <Dropzone setTestData={setTestData} setStartTimer={setStartTimer} />
         </div>
-        ) : (*/}
+        ) : (
         <div className='app-body'>
           <div className="sidebar">
             <Sidebar setTestData={setTestData} testData={testData} correctCount={correctCount} countdown={countdown} setStartTimer={setStartTimer}/>
@@ -68,7 +78,7 @@ export default function App() {
             </div>
           </div>
         </div>
-      {/* )} */}
+      )}
     </div>
   );
 }
