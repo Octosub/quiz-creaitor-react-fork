@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import logo from "./assets/qanki-logo.png";
+import logo from "./assets/quanki-logo.png";
 import Test from "./components/Test/test";
 import Dropzone from "./components/DropZone/dropzone";
 import Sidebar from "./components/Sidebar/sidebar";
@@ -13,14 +13,14 @@ export default function App() {
   const [countdown, setCountdown] = useState(null);
   const [startTimer, setStartTimer] = React.useState(false);
 
-  React.useEffect(() => {
-    const url = "http://localhost:3000/api/v1/tests/100";
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        setTestData(data);
-      });
-  }, []);
+  // React.useEffect(() => {
+  //   const url = "http://localhost:3000/api/v1/tests/100";
+  //   fetch(url)
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       setTestData(data);
+  //     });
+  // }, []);
 
   React.useEffect(() => {
     let timerId;
@@ -55,32 +55,34 @@ export default function App() {
   // }, []); // Add countdown as a dependency
 
   return (
-    <div className='app-frame'>
-      {/* {console.log(testData)} */}
-      {testData == null ? (
-        <div className="dropzone">
-          <h1>Upload Your First Test!</h1>
-          <Dropzone setTestData={setTestData} setStartTimer={setStartTimer} />
-        </div>
-      ) : (
-        <>
-          <div className="banner">
-            <h1 className="title">Quanki</h1>
-            <img className="logo" src={logo} alt="logo of qanki" />
+    <>
+      <div className="banner">
+        <h1 className="title">Quanki</h1>
+        <img className="logo" src={logo} alt="logo of quanki" />
+      </div>
+      <div className='app-frame'>
+        {/* {console.log(testData)} */}
+        {testData == null ? (
+          <div className="dropzone">
+            <h1>Upload Your First Test!</h1>
+            <Dropzone setTestData={setTestData} setStartTimer={setStartTimer} />
           </div>
-          <div className='app-body'>
-            <div className="sidebar">
-              <Sidebar setTestData={setTestData} testData={testData} correctCount={correctCount} countdown={countdown} setStartTimer={setStartTimer}/>
-              {/* <button onClick={() => setStartTimer(true)}>Start Timer</button> */}
-            </div>
-            <div className="test-side">
-              <div className="test-container">
-                {testData ? <Test test={testData} setCorrectCount={setCorrectCount} /> : 'Loading...'}
+        ) : (
+          <>
+            <div className='app-body'>
+              <div className="sidebar">
+                <Sidebar setTestData={setTestData} testData={testData} correctCount={correctCount} countdown={countdown} setStartTimer={setStartTimer}/>
+                {/* <button onClick={() => setStartTimer(true)}>Start Timer</button> */}
+              </div>
+              <div className="test-side">
+                <div className="test-container">
+                  {testData ? <Test test={testData} setCorrectCount={setCorrectCount} /> : 'Loading...'}
+                </div>
               </div>
             </div>
-          </div>
-        </>
-      )}
-    </div>
+          </>
+        )}
+      </div>
+    </>
   );
 }
