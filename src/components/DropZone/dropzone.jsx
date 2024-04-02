@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import "./dropzone.css"
+import "./dropzone.css";
 
 const DropZone = ({ setTestData, setStartTimer }) => {
   const [selectedFile, setSelectedFile] = useState(null);
