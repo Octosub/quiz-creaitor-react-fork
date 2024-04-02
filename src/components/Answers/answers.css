@@ -1,3 +1,7 @@
+.answers {
+  width: 100%;
+}
+
 .answers-container {
   display: flex;
   flex-direction: row;
@@ -7,9 +11,7 @@
 }
 
 .answers-container button {
-  width: 100%;
+  width: 25%;
   margin: 0 5px;
-  height: 100%;
+  overflow-wrap: break-word;
 }
-
-
