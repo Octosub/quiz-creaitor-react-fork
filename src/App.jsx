@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import logo from "./assets/qanki-logo.jpg";
+import logo from "./assets/qanki-logo.png";
 import Test from "./components/Test/test";
 import Dropzone from "./components/DropZone/dropzone";
 import Sidebar from "./components/Sidebar/sidebar";

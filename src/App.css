@@ -16,7 +16,13 @@
 .banner {
   display: flex;
   align-items: center;
-  height: 200px;
+  height: 150px;
+  width: 100%;
+  align-content: center;
+  justify-content: center;
+  background: rgb(167,201,87);
+  background: linear-gradient(180deg, rgba(167,201,87,1) 0%, rgba(106,153,78,1) 100%);
+  margin-bottom: 20px;
 }
 
 .logo {
@@ -40,4 +46,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.title {
+  color: #386641;
 }

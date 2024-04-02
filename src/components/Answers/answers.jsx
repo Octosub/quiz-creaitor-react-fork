@@ -52,17 +52,16 @@ function Answers({ choices, correctAnswer, setCorrectCount}) {
         {scrambled_order.map((index) => (
 
           <button
-            key={`ch</div>oice${index}`}
+            key={`choice${index}`}
             onClick={() => handleAnswerClick(choices[`choice${index}`], `choice${index}`)}
-            style={{
-              backgroundColor:
-                clicked[`choice${index}`] &&
-                (checkIfCorrect(choices[`choice${index}`]) || correctAnswer === `choice${index}`)
-                  ? '#8cb369'
-                  : clicked[`choice${index}`]
-                  ? '#ee6055'
-                  : '#f0ead2',
-            }}
+            className={
+              clicked[`choice${index}`] &&
+              (checkIfCorrect(choices[`choice${index}`]) || correctAnswer === `choice${index}`)
+                ? 'correct-answer'
+                : clicked[`choice${index}`]
+                ? 'wrong-answer'
+                : 'neutral-answer'
+            }
           >
             {`${choices[`choice${index}`]}`}
           </button>
