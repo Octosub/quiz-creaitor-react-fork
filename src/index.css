@@ -29,7 +29,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #76C893;
+  background: #6a994e;
   justify-content: center;
 }
 
@@ -50,7 +50,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #ecf39e;
 }
 button:focus,
 button:focus-visible {
@@ -63,7 +63,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #ecf39e;
   }
   button {
     background-color: #f9f9f9;

@@ -3,12 +3,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background-color: #99D98C;
+  background-color: #f2e8cf;
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0px 0px 5px #99D98C;
   width: 100%;
-
+  margin: 20px 0;
 }
 
 .challenge p {
