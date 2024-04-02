@@ -13,6 +13,11 @@
   align-items: center;
 }
 
+.landing-banner {
+  position: absolute;
+  top: 0px;
+}
+
 .banner {
   display: flex;
   align-items: center;
@@ -23,8 +28,6 @@
   background: rgb(167,201,87);
   background: linear-gradient(180deg, rgba(167,201,87,1) 0%, rgba(106,153,78,1) 100%);
   margin-bottom: 20px;
-  position: absolute;
-  top: 0px;
 }
 
 .banner img {

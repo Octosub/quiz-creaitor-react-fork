@@ -56,11 +56,11 @@ export default function App() {
 
   return (
     <>
-      <div className="banner">
-        <h1 className="title">Quanki</h1>
-        <img className="logo" src={logo} alt="logo of quanki" />
-      </div>
-      <div className='app-frame'>
+        <div className={testData ? "banner" : "banner landing-banner"}>
+          <h1 className="title">Quanki</h1>
+          <img className="logo" src={logo} alt="logo of quanki" />
+        </div>
+        <div className='app-frame'>
         {/* {console.log(testData)} */}
         {testData == null ? (
           <div className="dropzone">
