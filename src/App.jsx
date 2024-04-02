@@ -15,15 +15,15 @@ export default function App() {
   const [startTimer, setStartTimer] = React.useState(false);
   const [coundownOver, setCountdownOver] = React.useState(false);
 
-  React.useEffect(() => {
-    const url = "http://localhost:3000/api/v1/tests/136";
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        setTestData(data);
-        setStartTimer(true);
-      });
-  }, []);
+  // React.useEffect(() => {
+  //   const url = "http://localhost:3000/api/v1/tests/136";
+  //   fetch(url)
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       setTestData(data);
+  //       setStartTimer(true);
+  //     });
+  // }, []);
 
   React.useEffect(() => {
     let timerId;
@@ -50,6 +50,7 @@ export default function App() {
       console.log('Timer has finished');
     }
   }, [countdown]); // Dependency array includes countdown
+
   // useEffect(() => {
   //   const timerId = setInterval(() => {
   //     setCountdown((prevCountdown) => {
