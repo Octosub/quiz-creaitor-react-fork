@@ -3,6 +3,8 @@ import "./dropzone.css"
 
 const DropZone = ({ setTestData, setStartTimer }) => {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
   const dropRef = useRef();
 
   const handleDragOver = (e) => {
@@ -18,6 +20,7 @@ const DropZone = ({ setTestData, setStartTimer }) => {
   };
 
   const uploadFile = async (file) => {
+    setIsLoading(true);
     setSelectedFile(file);
 
     const formData = new FormData();
@@ -32,21 +35,28 @@ const DropZone = ({ setTestData, setStartTimer }) => {
     setTestData(data);
     console.log(JSON.stringify(formData));
     setStartTimer(true);
+    setIsLoading(false);
   };
 
   return (
-    <div className="dropzone-wrap">
-      <p className='droptext'>Drop your File here</p>
-      <div
-        className='dropzone-container'
-        ref={dropRef}
-        onDragOver={handleDragOver}
-        onDrop={handleDrop}
-        >
-        <input type="file" onChange={(e) => uploadFile(e.target.files[0])} />
-        {selectedFile && <p>Selected file: {selectedFile.name}</p>}
+    <>
+      {isLoading ? (
+        <p className='loading'></p>
+      ) : (
+      <div className="dropzone-wrap">
+        <p className='droptext'>Drop your File here</p>
+        <div
+          className='dropzone-container'
+          ref={dropRef}
+          onDragOver={handleDragOver}
+          onDrop={handleDrop}
+          >
+          <input type="file" onChange={(e) => uploadFile(e.target.files[0])} />
+          {selectedFile && <p>Selected file: {selectedFile.name}</p>}
+        </div>
       </div>
-    </div>
+      )}
+    </>
   );
 };
 
