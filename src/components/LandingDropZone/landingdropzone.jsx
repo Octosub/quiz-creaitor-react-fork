@@ -20,6 +20,7 @@ const LandingDropZone = ({ setTestData, setStartTimer }) => {
 
   const uploadFile = async (file) => {
     setIsLoading(true);
+    sleep(1000);
     setSelectedFile(file);
 
     const formData = new FormData();
@@ -39,17 +40,24 @@ const LandingDropZone = ({ setTestData, setStartTimer }) => {
 
 
   return (
-    <div className="landing-dropzone-wrap">
-      <div
-        className='landing-dropzone-container'
-        ref={dropRef}
-        onDragOver={handleDragOver}
-        onDrop={handleDrop}
-        >
-        {isLoading ? <p className="loading"></p> : <label htmlFor="landing-dropzone-field">Upload Your First Test!</label>}        <input id="landing-dropzone-field" type="file" onChange={(e) => uploadFile(e.target.files[0])} />
-        {selectedFile && <p>Selected file: {selectedFile.name}</p>}
-      </div>
-    </div>
+    <>
+      {isLoading ? (
+        <p className='loading'></p>
+        ) : (
+          <div className="landing-dropzone-wrap">
+          <div
+            className='landing-dropzone-container'
+            ref={dropRef}
+            onDragOver={handleDragOver}
+            onDrop={handleDrop}
+            >
+            <label htmlFor="landing-dropzone-field">Upload Your First Test!</label>
+            <input id="landing-dropzone-field" type="file" onChange={(e) => uploadFile(e.target.files[0])} />
+            {selectedFile && <p>Selected file: {selectedFile.name}</p>}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
