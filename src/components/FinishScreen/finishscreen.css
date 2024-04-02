@@ -5,7 +5,11 @@
   align-items: center;
   height: 100%;
   width: 66.6%;
-  background-color: rgba(245, 245, 245, 0.5);
+  background-color: rgba(106, 153, 78, 0.5);
   position: fixed;
-  top: 150px;
+  top: 0px;
+}
+
+.correctCountP {
+  font-size: 50px;
 }

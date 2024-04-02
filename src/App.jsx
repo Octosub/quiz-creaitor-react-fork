@@ -2,7 +2,6 @@ import "./App.css";
 import React from "react";
 import logo from "./assets/quanki-logo.png";
 import Test from "./components/Test/test";
-import Dropzone from "./components/DropZone/dropzone";
 import LandingDropZone from "./components/LandingDropZone/landingdropzone";
 import Sidebar from "./components/Sidebar/sidebar";
 import FinishScreen from "./components/FinishScreen/finishscreen";
@@ -30,8 +29,7 @@ export default function App() {
     let timerId;
     if (startTimer && testData && testData.time) {
       // setStartTimer(true);
-      setCountdown(testData.time / 1000); // Set countdown value when testData changes
-      timerId = setInterval(() => {
+      setCountdown((countdown ?? testData.time) / 1000);      timerId = setInterval(() => {
         setCountdown(countdown => countdown - 1);
       }, 1000);
     }
@@ -46,7 +44,7 @@ export default function App() {
 
 
   React.useEffect(() => {
-    if (countdown === 0) {
+    if (countdown === 0 || countdown < 0) {
       setCountdownOver(true);
       setStartTimer(false);
       console.log('Timer has finished');
@@ -88,7 +86,7 @@ export default function App() {
               <div className="test-side">
                 <div className="test-container">
                   {testData ? <Test test={testData} setCorrectCount={setCorrectCount} /> : 'Loading...'}
-                  {coundownOver == true ? <div className="finish-screen"><FinishScreen correctCount={correctCount} testData={testData} /></div> : null}
+                  {coundownOver == true ? <div className="finish-screen"><FinishScreen correctCount={correctCount} setStartTimer={setStartTimer} setCountdown={setCountdown} setCountdownOver={setCountdownOver}/></div> : null}
                 </div>
               </div>
             </div>

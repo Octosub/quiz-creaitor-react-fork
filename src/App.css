@@ -28,6 +28,8 @@
   background: rgb(167,201,87);
   background: linear-gradient(180deg, rgba(167,201,87,1) 0%, rgba(106,153,78,1) 100%);
   margin-bottom: 20px;
+  z-index: 9999;
+  position: relative;
 }
 
 .banner img {
