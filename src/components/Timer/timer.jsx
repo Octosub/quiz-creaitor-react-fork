@@ -9,9 +9,9 @@ export default function Timer({ countdown }) {
       <div className="whole-timer">
         <p className="ttext">Remaining Time</p>
         <div className="countdown">
-          {minutes}:{seconds < 10 ? '0' : ''}{seconds}
+          {countdown > 0 ? `${minutes}:${seconds < 10 ? '0' : ''}${seconds}` : `0:00`}
         </div>
       </div>
     </>
-    );
-  }
+  );
+}

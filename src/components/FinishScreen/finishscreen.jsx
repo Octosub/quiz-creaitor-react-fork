@@ -1,7 +1,7 @@
 import React from 'react';
 import './finishscreen.css';
 
-const FinishScreen = ({ correctCount, setStartTimer, setCountdown, setCountdownOver }) => {
+const FinishScreen = ({ correctCount, setStartTimer, setCountdown, setCountdownOver, testData }) => {
   const addTwoMinutesAndStart = () => {
     setCountdown(120000); // Add 2 minutes
     setStartTimer(true); // Start the timer
@@ -9,10 +9,12 @@ const FinishScreen = ({ correctCount, setStartTimer, setCountdown, setCountdownO
   };
 
   return (
-    <div>
-      <h1>Your Time is Over!</h1>
-      <p className='correctCountP'>Your score is: {correctCount * 10}</p>
-      <button onClick={addTwoMinutesAndStart}>Add 2 more minutes</button>
+    <div className='container-left'>
+      <div className="background-finish">
+        <h1>Time&#39;s up!</h1>
+        <p className='correctCountP'>Score: {correctCount * 10}/{testData.max_score}</p>
+        <button onClick={addTwoMinutesAndStart}>Add 2 more minutes</button>
+      </div>
     </div>
   );
 };
