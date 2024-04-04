@@ -33,5 +33,6 @@
 
 .selected-answer {
   border: rgba(75, 75, 75) 3px solid;
+  /* filter: saturate(200%); */
   /* box-shadow: rgba(75, 75, 75, 0.5) 2px 2px 10px; */
 }
