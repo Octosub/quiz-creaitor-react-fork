@@ -12,5 +12,14 @@
 }
 
 .challenge p {
+  margin-bottom: 5px;
+  text-align: left !important; /* Adjusted to the left */
+}
+
+.question-text {
+  font-size: 1.2em;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 98%;
 }
