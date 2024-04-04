@@ -14,16 +14,16 @@ export default function App() {
   const [countdown, setCountdown] = useState(null);
   const [startTimer, setStartTimer] = React.useState(false);
   const [coundownOver, setCountdownOver] = React.useState(false);
-
-  // React.useEffect(() => {
-  //   const url = "http://localhost:3000/api/v1/tests/136";
-  //   fetch(url)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       setTestData(data);
-  //       setStartTimer(true);
-  //     });
-  // }, []);
+  
+  React.useEffect(() => {
+    const url = "http://localhost:3000/api/v1/tests/136";
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        setTestData(data);
+        setStartTimer(true);
+      });
+  }, []);
 
   React.useEffect(() => {
     let timerId;
@@ -88,7 +88,7 @@ export default function App() {
               <div className="test-side">
                 <div className="test-container">
                   {testData ? <Test test={testData} setCorrectCount={setCorrectCount} /> : 'Loading...'}
-                  {coundownOver == true ? <div className="finish-screen"><FinishScreen correctCount={correctCount} setStartTimer={setStartTimer} setCountdown={setCountdown} setCountdownOver={setCountdownOver}/></div> : null}
+                  {coundownOver == true ? <div className="finish-screen"><FinishScreen correctCount={correctCount} setStartTimer={setStartTimer} setCountdown={setCountdown} setCountdownOver={setCountdownOver} testData={testData}/></div> : null}
                 </div>
               </div>
             </div>

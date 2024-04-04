@@ -26,16 +26,20 @@ const DropZone = ({ setTestData, setStartTimer, setCountdown, setCountdownOver }
     const formData = new FormData();
 
     formData.append('file', file);
+    formData.append('number', 4);
 
     const response = await fetch('http://localhost:3000/api/v1/tests', {
       method: 'POST',
-      body: formData
+      body: formData,
     });
     const data = await response.json();
     setTestData(data);
     // console.log(JSON.stringify(formData));
     console.log(data.time);
-    console.log(setTestData);
+    // console.log(setTestData);
+    console.log("AAAAA");
+    console.log(formData);
+    console.log("BBBBB");
     setIsLoading(false);
     setCountdownOver(false);
     setCountdown(data.time);
