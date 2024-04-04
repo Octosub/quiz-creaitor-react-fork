@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import "./dropzone.css";
 
-const DropZone = ({ setTestData, setStartTimer, setCountdown, setCountdownOver }) => {
+const DropZone = ({ setTestData, setStartTimer, setCountdown, setCountdownOver, setShowDropzone, setIsUploadClicked, setIsShowClicked }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [numberOfQuestions, setNumberOfQuestions] = useState(3);
@@ -43,6 +43,9 @@ const DropZone = ({ setTestData, setStartTimer, setCountdown, setCountdownOver }
     setCountdownOver(false);
     setCountdown(data.time);
     setStartTimer(true);
+    setShowDropzone(false);
+    setIsUploadClicked(false);
+    setIsShowClicked(true);
   };
 
   return (

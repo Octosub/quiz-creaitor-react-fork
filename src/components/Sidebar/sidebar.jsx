@@ -34,7 +34,7 @@ export default function Sidebar({ setTestData, testData, correctCount, countdown
       <div className="sidebar-content">
         {showDropzone ? (
           <div className="dropzone">
-            <Dropzone setTestData={setTestData} setStartTimer={setStartTimer} setCountdownOver={setCountdownOver} setCountdown={setCountdown} countdown={countdown} />
+            <Dropzone setTestData={setTestData} setStartTimer={setStartTimer} setCountdownOver={setCountdownOver} setCountdown={setCountdown} countdown={countdown} setShowDropzone={setShowDropzone} setIsUploadClicked={setIsUploadClicked} setIsShowClicked={setIsShowClicked} />
           </div>
         ) : (
           <div className="test-progress">
