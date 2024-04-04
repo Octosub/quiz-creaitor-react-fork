@@ -5,7 +5,7 @@ export default function Testprogress({ testData, correctCount, countdown }) {
 
   return (
     <>
-      <div>
+      <div className='textprogress-container'>
         <>
           <Timer time={testData && testData.time} countdown={countdown} />
         </>
