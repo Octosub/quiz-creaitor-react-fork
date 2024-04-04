@@ -4,6 +4,7 @@ import "./dropzone.css";
 const DropZone = ({ setTestData, setStartTimer, setCountdown, setCountdownOver }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [numberOfQuestions, setNumberOfQuestions] = useState(3);
 
   const dropRef = useRef();
 
@@ -19,6 +20,10 @@ const DropZone = ({ setTestData, setStartTimer, setCountdown, setCountdownOver }
     }
   };
 
+  const handleSliderChange = (e) => {
+    setNumberOfQuestions(e.target.value);
+  };
+
   const uploadFile = async (file) => {
     setIsLoading(true);
     setSelectedFile(file);
@@ -26,7 +31,7 @@ const DropZone = ({ setTestData, setStartTimer, setCountdown, setCountdownOver }
     const formData = new FormData();
 
     formData.append('file', file);
-    formData.append('number', 4);
+    formData.append('number', numberOfQuestions);
 
     const response = await fetch('http://localhost:3000/api/v1/tests', {
       method: 'POST',
@@ -34,12 +39,6 @@ const DropZone = ({ setTestData, setStartTimer, setCountdown, setCountdownOver }
     });
     const data = await response.json();
     setTestData(data);
-    // console.log(JSON.stringify(formData));
-    console.log(data.time);
-    // console.log(setTestData);
-    console.log("AAAAA");
-    console.log(formData);
-    console.log("BBBBB");
     setIsLoading(false);
     setCountdownOver(false);
     setCountdown(data.time);
@@ -51,6 +50,11 @@ const DropZone = ({ setTestData, setStartTimer, setCountdown, setCountdownOver }
       {isLoading ? (
         <p className='loading'></p>
       ) : (
+      <>
+      <div className="slider-container">
+        <input className='slider' type="range" min="0" max="10" value={numberOfQuestions} onChange={handleSliderChange} />
+        <p>Number of Questions: {numberOfQuestions}</p>
+      </div>
       <div className="dropzone-wrap">
         <p className='droptext'>Drop your File here</p>
         <div
@@ -58,11 +62,11 @@ const DropZone = ({ setTestData, setStartTimer, setCountdown, setCountdownOver }
           ref={dropRef}
           onDragOver={handleDragOver}
           onDrop={handleDrop}
-          >
+        >
           <input type="file" onChange={(e) => uploadFile(e.target.files[0])} />
           {selectedFile && <p>Selected file: {selectedFile.name}</p>}
         </div>
-      </div>
+      </div></>
       )}
     </>
   );
