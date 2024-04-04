@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import "./dropzone.css";
 
-const DropZone = ({ setTestData, setStartTimer }) => {
+const DropZone = ({ setTestData, setStartTimer, setCountdown, setCountdownOver }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -33,9 +33,13 @@ const DropZone = ({ setTestData, setStartTimer }) => {
     });
     const data = await response.json();
     setTestData(data);
-    console.log(JSON.stringify(formData));
-    setStartTimer(true);
+    // console.log(JSON.stringify(formData));
+    console.log(data.time);
+    console.log(setTestData);
     setIsLoading(false);
+    setCountdownOver(false);
+    setCountdown(data.time);
+    setStartTimer(true);
   };
 
   return (
