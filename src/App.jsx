@@ -29,7 +29,8 @@ export default function App() {
     let timerId;
     if (startTimer && testData && testData.time) {
       // setStartTimer(true);
-      setCountdown((countdown ?? testData.time) / 1000);      timerId = setInterval(() => {
+      setCountdown((countdown ?? testData.time) / 1000);
+      timerId = setInterval(() => {
         setCountdown(countdown => countdown - 1);
       }, 1000);
     }
@@ -81,7 +82,7 @@ export default function App() {
           <>
             <div className='app-body'>
               <div className="sidebar">
-                <Sidebar setTestData={setTestData} testData={testData} correctCount={correctCount} countdown={countdown} setStartTimer={setStartTimer}/>
+                <Sidebar setTestData={setTestData} testData={testData} correctCount={correctCount} countdown={countdown} setStartTimer={setStartTimer} setCountdownOver={setCountdownOver} setCountdown={setCountdown} />
                 {/* <button onClick={() => setStartTimer(true)}>Start Timer</button> */}
               </div>
               <div className="test-side">
