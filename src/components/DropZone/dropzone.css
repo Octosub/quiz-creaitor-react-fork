@@ -38,7 +38,7 @@ input {
 }
 
 .dropzone-container p {
-  opacity: 0.1;
+  opacity: 0;
   position: absolute;
   z-index: -1;
   bottom: 80px;

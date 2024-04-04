@@ -2,7 +2,6 @@ import React from 'react';
 import Answers from '../Answers/answers';
 import './questionbox.css';
 
-// function QuestionBox({challenge, clicked, setClicked, correctCount, setCorrectCount}) {
 function QuestionBox({challenge, correctCount, setCorrectCount}) {
   return (
     <div >
