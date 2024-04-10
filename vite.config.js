@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react()],
   base: "/quiz-creaitor-react/",
   build: {
-    outDir: "build",
+    outDir: "dist",
   },
 })
