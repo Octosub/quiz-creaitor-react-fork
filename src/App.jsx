@@ -29,7 +29,8 @@ export default function App() {
     let timerId;
     if (startTimer && testData && testData.time) {
       // setStartTimer(true);
-      setCountdown((countdown ?? testData.time) / 1000);      timerId = setInterval(() => {
+      setCountdown((countdown ?? testData.time) / 1000);
+      timerId = setInterval(() => {
         setCountdown(countdown => countdown - 1);
       }, 1000);
     }
@@ -51,20 +52,6 @@ export default function App() {
     }
   }, [countdown]); // Dependency array includes countdown
 
-  // useEffect(() => {
-  //   const timerId = setInterval(() => {
-  //     setCountdown((prevCountdown) => {
-  //       if (prevCountdown <= 1) {
-  //         clearInterval(timerId);
-  //         return 0;
-  //       } else {
-  //         return prevCountdown - 1;
-  //       }
-  //     });
-  //   }, 1000); // Update every second
-  //   return () => clearInterval(timerId);
-  // }, []); // Add countdown as a dependency
-
   return (
     <>
         <div className={testData ? "banner" : "banner landing-banner"}>
@@ -81,13 +68,13 @@ export default function App() {
           <>
             <div className='app-body'>
               <div className="sidebar">
-                <Sidebar setTestData={setTestData} testData={testData} correctCount={correctCount} countdown={countdown} setStartTimer={setStartTimer}/>
+                <Sidebar setTestData={setTestData} testData={testData} correctCount={correctCount} countdown={countdown} setStartTimer={setStartTimer} setCountdownOver={setCountdownOver} setCountdown={setCountdown} />
                 {/* <button onClick={() => setStartTimer(true)}>Start Timer</button> */}
               </div>
               <div className="test-side">
                 <div className="test-container">
                   {testData ? <Test test={testData} setCorrectCount={setCorrectCount} /> : 'Loading...'}
-                  {coundownOver == true ? <div className="finish-screen"><FinishScreen correctCount={correctCount} setStartTimer={setStartTimer} setCountdown={setCountdown} setCountdownOver={setCountdownOver}/></div> : null}
+                  {coundownOver == true ? <div className="finish-screen"><FinishScreen correctCount={correctCount} setStartTimer={setStartTimer} setCountdown={setCountdown} setCountdownOver={setCountdownOver} testData={testData}/></div> : null}
                 </div>
               </div>
             </div>

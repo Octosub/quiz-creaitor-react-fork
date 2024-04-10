@@ -3,7 +3,7 @@ import TestProgress from "../TestProgress/testprogress";
 import { useState } from 'react';
 import './sidebar.css';
 
-export default function Sidebar({ setTestData, testData, correctCount, countdown, setStartTimer }) {
+export default function Sidebar({ setTestData, testData, correctCount, countdown, setCountdownOver, setCountdown, setStartTimer }) {
   const [showDropzone, setShowDropzone] = useState(false);
   const [isUploadClicked, setIsUploadClicked] = useState(false);
   const [isShowClicked, setIsShowClicked] = useState(true);
@@ -31,17 +31,17 @@ export default function Sidebar({ setTestData, testData, correctCount, countdown
           Progress
         </button>
       </div>
-        <div className="sidebar-head">
-        </div>
+      <div className="sidebar-content">
         {showDropzone ? (
           <div className="dropzone">
-            <Dropzone setTestData={setTestData} setStartTimer={setStartTimer} />
+            <Dropzone setTestData={setTestData} setStartTimer={setStartTimer} setCountdownOver={setCountdownOver} setCountdown={setCountdown} countdown={countdown} setShowDropzone={setShowDropzone} setIsUploadClicked={setIsUploadClicked} setIsShowClicked={setIsShowClicked} />
           </div>
         ) : (
           <div className="test-progress">
             <TestProgress testData={testData} correctCount={correctCount} countdown={countdown} />
           </div>
         )}
+        </div>
       </div>
       </>
     );

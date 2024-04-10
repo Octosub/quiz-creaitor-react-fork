@@ -7,11 +7,13 @@ function Answers({ choices, correctAnswer, setCorrectCount}) {
   const [isCorrect, setIsCorrect] = useState({});
   const [clicked, setClicked] = useState({});
   const [scrambled_order, setScrambledOrder] = useState([1, 2, 3, 4]);
+  const [selected, setSelected] = useState();
 
 
   const handleAnswerClick = (answer, choiceId) => {
     console.log(`Clicked answer: ${answer}`);
     if (!clicked[choiceId] === true) {
+      setSelected(choiceId);
       let newClicked = { ...clicked };
       let newIsCorrect = { ...isCorrect };
       if (answer === correctAnswer) {
@@ -27,6 +29,7 @@ function Answers({ choices, correctAnswer, setCorrectCount}) {
         newClicked[choiceId] = true;
       });
     }
+
   };
 
   const checkIfCorrect = (choice) => {
@@ -50,17 +53,17 @@ function Answers({ choices, correctAnswer, setCorrectCount}) {
     <>
       <div className='answers-container'>
         {scrambled_order.map((index) => (
-
           <button
             key={`choice${index}`}
             onClick={() => handleAnswerClick(choices[`choice${index}`], `choice${index}`)}
             className={
-              clicked[`choice${index}`] &&
+              (selected === `choice${index}` ? 'selected-answer' : '') +
+              (clicked[`choice${index}`] &&
               (checkIfCorrect(choices[`choice${index}`]) || correctAnswer === `choice${index}`)
-                ? 'correct-answer'
+                ? ' correct-answer'
                 : clicked[`choice${index}`]
-                ? 'wrong-answer'
-                : 'neutral-answer'
+                ? ' wrong-answer'
+                : ' neutral-answer')
             }
           >
             {`${choices[`choice${index}`]}`}

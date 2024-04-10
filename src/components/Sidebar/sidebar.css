@@ -30,3 +30,9 @@
   border-bottom-right-radius: 8px !important;
 }
 
+.sidebar-content {
+  height: 40vh;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+}
