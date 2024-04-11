@@ -9,7 +9,7 @@ export default function Form({ setTestData, setClicked }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://localhost:3000/api/v1/tests', {
+    const response = await fetch('https://quanki-bb66635c0450.herokuapp.com/api/v1/tests', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

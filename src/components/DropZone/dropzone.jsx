@@ -33,7 +33,7 @@ const DropZone = ({ setTestData, setStartTimer, setCountdown, setCountdownOver, 
     formData.append('file', file);
     formData.append('number', numberOfQuestions);
 
-    const response = await fetch('http://localhost:3000/api/v1/tests', {
+    const response = await fetch('https://quanki-bb66635c0450.herokuapp.com/api/v1/tests', {
       method: 'POST',
       body: formData,
     });
